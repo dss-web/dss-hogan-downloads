@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DSS Hogan Module: Downloads\n"
+"POT-Creation-Date: 2018-03-21 14:05+0100\n"
+"PO-Revision-Date: 2018-03-21 14:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: dss-hogan-downloads.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: assets/template.php:24
+msgid "Download the file"
+msgstr "Last ned filen"
+
+#: class-dss-downloads.php:37 class-dss-downloads.php:54
+msgid "Downloads"
+msgstr "Nedlastinger"
+
+#: class-dss-downloads.php:56
+msgid "Create a list of downloadable files"
+msgstr "Lag en liste av nedlastbare elementer"
+
+#: class-dss-downloads.php:61
+msgid "Add download"
+msgstr "Legg til element"
+
+#: class-dss-downloads.php:66
+msgid "Title"
+msgstr "Tittel"
+
+#: class-dss-downloads.php:68
+msgctxt "ACF Instruction"
+msgid "Optional. If not filled in \"Download the file\" is used as title."
+msgstr "Valgfri. Hvis ikke fylt ut, brukes \"Last ned filen\" som tittel."
+
+#: class-dss-downloads.php:77
+msgid "File"
+msgstr "Fil"
+
+#: class-dss-downloads.php:79
+msgctxt "ACF Instruction"
+msgid "Allowed file types"
+msgstr "Tillatte filtyper"
+
+#. Plugin Name of the plugin/theme
+msgid "DSS Hogan Module: Downloads"
+msgstr "DSS Hogan-modul: Nedlastinger"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/dss-web/dss-hogan-downloads"
+msgstr "https://github.com/dss-web/dss-hogan-downloads"
+
+#. Description of the plugin/theme
+msgid "DSS Download Module for Hogan."
+msgstr "DSS nedlastingmodul for Hogan."
+
+#. Author of the plugin/theme
+msgid "Dekode"
+msgstr "Dekode"
+
+#. Author URI of the plugin/theme
+msgid "https://dekode.no"
+msgstr "https://dekode.no"
