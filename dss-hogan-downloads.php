@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/dss-web/dss-hogan-downloads
  * GitHub Plugin URI: https://github.com/dss-web/dss-hogan-downloads
  * Description: DSS Download Module for Hogan.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Dekode
  * Author URI: https://dekode.no
  * License: GPL-3.0
@@ -38,7 +38,7 @@ function hogan_load_textdomain() {
 /**
  * Register module in Hogan
  */
-function hogan_register_module() {
+function hogan_register_module( \Dekode\Hogan\Core $core ) {
 	require_once 'class-dss-downloads.php';
-	\hogan_register_module( new \Dekode\Hogan\DSS_Downloads() );
+	$core->register_module( new \Dekode\Hogan\DSS_Downloads() );
 }
