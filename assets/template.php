@@ -23,9 +23,13 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof DSS_Downloads ) ) {
 			<?php
 			$title                          = $download['title'] ?: esc_html__( 'Download the file', 'hogan-dss-downloads' );
 			$file_name                      = $download['file']['filename'];
-			$attachment_file_size           = filesize( get_attached_file( $download['file']['id'] ) );
-			$attachment_file_size_formatted = size_format( $attachment_file_size );
-			$max_chars                      = 50;
+			$attachment_file_path           = get_attached_file( $download['file']['id'] );
+			$attachment_file_size_formatted = '';
+			if ( false !== $attachment_file_path ) :
+				$attachment_file_size           = filesize( $attachment_file_path );
+				$attachment_file_size_formatted = size_format( $attachment_file_size );
+			endif;
+			$max_chars = 50;
 			if ( strlen( $file_name ) > $max_chars ) {
 				$mime_type_array   = explode( '/', $download['file']['mime_type'] );
 				$mime_type         = $mime_type_array[ count( $mime_type_array ) - 1 ];

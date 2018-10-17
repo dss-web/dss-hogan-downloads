@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/dss-web/dss-hogan-downloads
  * GitHub Plugin URI: https://github.com/dss-web/dss-hogan-downloads
  * Description: DSS Download Module for Hogan.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Dekode
  * Author URI: https://dekode.no
  * License: GPL-3.0
