@@ -1,0 +1,35 @@
+{
+  "name": "dss-hogan-downloads",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "heisenberg-scripts build",
+    "watch": "heisenberg-scripts build --watch"
+  },
+  "entry": {
+    "dss-hogan-downloads": [
+      "./src/dss-hogan-downloads.scss"
+    ]
+  },
+  "heisenberg": {
+    "build": {
+      "commonsChunkPlugin": false,
+      "dest": "assets",
+      "hashFilenames": false,
+      "manifest": false
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Android >= 4.4",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "heisenberg-dev-utils": "0.0.7",
+    "heisenberg-scripts": "0.3.13"
+  },
+  "dependencies": {}
+}
