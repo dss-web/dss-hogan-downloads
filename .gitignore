@@ -1,6 +1,8 @@
-.idea/
 .DS_Store
-vendor
+.idea/
+.cache-loader
+node_modules
+/vendor
 wp-content
 yarn-error.log
-node_modules
+/assets/js
