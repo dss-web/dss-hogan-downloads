@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof DSS_Downloads ) ) {
 	return; // Exit if accessed directly.
 }
 
-$ul_class = 'on' === $this->preview_image ? 'image_preview' : 'icon_preview';
+$ul_class = ( isset( $this->preview_image ) && 'on' === $this->preview_image ) ? 'image_preview' : 'icon_preview';
 ?>
 
 <ul class="<?php echo esc_attr( $ul_class ); ?>">
@@ -46,7 +46,7 @@ $ul_class = 'on' === $this->preview_image ? 'image_preview' : 'icon_preview';
 			?>
 			<div>
 				<?php
-				if ( 'on' === $this->preview_image ) {
+				if ( isset( $this->preview_image ) && 'on' === $this->preview_image ) {
 					$image = wp_get_attachment_image( $file_id, apply_filters( 'dss/hogan/module/downloads/preview_image_size', 'thumbnail' ) ) ?: sprintf( '<img src="%s" alt="%s">', apply_filters( 'dss/hogan/module/downloads/preview_image_fallback_icon_path', plugins_url( '/assets/images/document.png', dirname( __FILE__ ) ) ), esc_attr( 'Document preview image', 'dss-hogan-downloads' ) );
 					printf( '<a href="%s" title="%s"
 					   download>%s</a>', esc_url( $file_url ), esc_attr( $file_name ), $image );
