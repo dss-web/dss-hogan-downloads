@@ -89,6 +89,14 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 					'button_label' => __( 'Add download', 'dss-hogan-downloads' ),
 					'sub_fields'   => [
 						[
+							'key' => $this->field_key . '_download_item',
+							'label' => __( 'Download', 'dss-hogan-downloads' ),
+							'name' => 'download_item',
+							'type' => 'accordion',
+							'open' => 1,
+							'multi_expand' => 1,
+						],
+						[
 							'type'         => 'text',
 							'key'          => $this->field_key . '_title',
 							'label'        => __( 'Title', 'dss-hogan-downloads' ),

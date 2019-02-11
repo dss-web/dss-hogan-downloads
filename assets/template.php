@@ -28,7 +28,6 @@ $ul_class = 'on' === $this->preview_image ? 'image_preview' : 'icon_preview';
 			$file                           = ( isset( $download['file'] ) ? $download['file'] : false );
 			$file_url                       = ( ( $file && isset( $file['url'] ) ) ? $file['url'] : false );
 			$file_name                      = ( ( $file && isset( $file['filename'] ) ) ? $file['filename'] : false );
-			$file_mime_type                 = ( ( $file && isset( $file['mime_type'] ) ) ? $file['mime_type'] : false );
 			$file_id                        = ( ( $file && isset( $file['id'] ) ) ? $file['id'] : false );
 			$attachment_file_path           = get_attached_file( $file_id );
 			$attachment_file_size_formatted = '';
@@ -36,9 +35,9 @@ $ul_class = 'on' === $this->preview_image ? 'image_preview' : 'icon_preview';
 				$attachment_file_size           = filesize( $attachment_file_path );
 				$attachment_file_size_formatted = size_format( $attachment_file_size );
 			endif;
-			$max_chars       = apply_filters( 'dss/hogan/module/downloads/file_name_max_chars', 25 );
+			$max_chars = apply_filters( 'dss/hogan/module/downloads/file_name_max_chars', 25 );
 			if ( strlen( $file_name ) > $max_chars ) {
-				$mime_type_array   = explode( '/', $file_mime_type );
+				$mime_type_array   = explode( '.', $file_name );
 				$mime_type         = $mime_type_array[ count( $mime_type_array ) - 1 ];
 				$file_name_chopped = substr( $file_name, 0, ( $max_chars - 3 ) ) . '...' . $mime_type;
 			} else {
@@ -48,7 +47,7 @@ $ul_class = 'on' === $this->preview_image ? 'image_preview' : 'icon_preview';
 			<div>
 				<?php
 				if ( 'on' === $this->preview_image ) {
-					$image = wp_get_attachment_image( $file_id, apply_filters( 'dss/hogan/module/downloads/preview_image_size', 'thumbnail' ) ) ?: sprintf( '<img src="%s" alt="%s">', apply_filters('dss/hogan/module/downloads/preview_image_fallback_icon_path', plugins_url( '/assets/images/document.png', dirname( __FILE__ ) ) ), esc_attr( 'Document preview image', 'dss-hogan-downloads' ) );
+					$image = wp_get_attachment_image( $file_id, apply_filters( 'dss/hogan/module/downloads/preview_image_size', 'thumbnail' ) ) ?: sprintf( '<img src="%s" alt="%s">', apply_filters( 'dss/hogan/module/downloads/preview_image_fallback_icon_path', plugins_url( '/assets/images/document.png', dirname( __FILE__ ) ) ), esc_attr( 'Document preview image', 'dss-hogan-downloads' ) );
 					printf( '<a href="%s" title="%s"
 					   download>%s</a>', esc_url( $file_url ), esc_attr( $file_name ), $image );
 				}
