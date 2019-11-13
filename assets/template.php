@@ -24,7 +24,7 @@ $ul_class = ( isset( $this->preview_image ) && 'on' === $this->preview_image ) ?
 	<?php foreach ( $this->downloads as $download ) : ?>
 		<li>
 			<?php
-			$title                          = $download['title'] ?: esc_html__( 'Download the file', 'hogan-dss-downloads' );
+			$title                          = $download['title'] ?: esc_html__( 'Download the file', 'dss-hogan-downloads' );
 			$file                           = ( isset( $download['file'] ) ? $download['file'] : false );
 			$file_url                       = ( ( $file && isset( $file['url'] ) ) ? $file['url'] : false );
 			$file_name                      = ( ( $file && isset( $file['filename'] ) ) ? $file['filename'] : false );
@@ -48,14 +48,24 @@ $ul_class = ( isset( $this->preview_image ) && 'on' === $this->preview_image ) ?
 				<?php
 				if ( isset( $this->preview_image ) && 'on' === $this->preview_image ) {
 					$image = wp_get_attachment_image( $file_id, apply_filters( 'dss/hogan/module/downloads/preview_image_size', 'thumbnail' ) ) ?: sprintf( '<img src="%s" alt="%s">', apply_filters( 'dss/hogan/module/downloads/preview_image_fallback_icon_path', plugins_url( '/assets/images/document.png', dirname( __FILE__ ) ) ), esc_attr( 'Document preview image', 'dss-hogan-downloads' ) );
-					printf( '<a href="%s" title="%s"
-					   download>%s</a>', esc_url( $file_url ), esc_attr( $file_name ), $image );
+					printf(
+						'<a href="%s" title="%s"
+					   download>%s</a>',
+						esc_url( $file_url ),
+						esc_attr( $file_name ),
+						$image
+					);
 				}
 				?>
 				<div>
 					<?php
-					printf( '<a href="%s" title="%s"
-					   download>%s</a>', esc_url( $file_url ), esc_attr( $file_name ), esc_html( $title ) );
+					printf(
+						'<a href="%s" title="%s"
+					   download>%s</a>',
+						esc_url( $file_url ),
+						esc_attr( $file_name ),
+						esc_html( $title )
+					);
 					?>
 					<br>
 					<span class="file-info"><?php echo $file_name_chopped . ' | ' . $attachment_file_size_formatted; ?></span>
