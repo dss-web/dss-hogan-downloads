@@ -61,17 +61,18 @@ if ( ! \function_exists( 'Dekode\\Hogan\\render_dss_hogan_download_item' ) ) {
 
 ?>
 
-<ul class="">
+<ul>
 	<?php
 	// loop box layout.
-	foreach ( $this->downloads as $download ) : ?>
-		<li class="">
+	foreach ( $this->downloads as $key => $download ) : ?>
+		<li>
 			<?php
+			$list_name = 'download_list_' . $this->counter . '_' . $key; // counter comes from core class and is the flexible content order number.
 			// Box title.
 			$box_title = $download['title'] ?: esc_html__( 'Download files', 'dss-hogan-downloads' );
-			printf( '<button class="longdoc-download active" data-toggle="[data-longdoc-download-list]" aria-expanded="true" aria-controls="jsDataLongdocDownloadList">%s</button>', esc_html( $box_title ) );
+			printf( '<button role="button" aria-expanded="false" aria-controls="%s">%s <span></span></button>', esc_attr( $list_name ), esc_html( $box_title ) );
 			?>
-			<ul>
+			<ul id="<?php echo $list_name; ?>" aria-hidden="true">
 				<li>
 					<?php echo render_dss_hogan_download_item( $download ); ?>
 				</li>

@@ -51,7 +51,15 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 		 * Enqueue module assets
 		 */
 		public function enqueue_assets() {
-			wp_enqueue_style( 'dss-hogan-downloads', plugins_url( '/assets/css/dss-hogan-downloads.css', __FILE__ ), [], '1.2.0' );
+			$_version = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? time() : '2.0.0';
+
+			if ( true === apply_filters( 'hogan/module/downloads/load_styles', true ) ) {
+				wp_enqueue_style( 'dss-hogan-downloads', plugins_url( '/assets/css/dss-hogan-downloads.css', __FILE__ ), [], $_version );
+			}
+
+			if ( true === apply_filters( 'hogan/module/downloads/load_scripts', true ) ) {
+				wp_enqueue_script( 'dss-hogan-downloads', plugins_url( '/assets/js/dss-hogan-downloads.js', __FILE__ ), [], $_version, true );
+			}
 		}
 
 		/**
@@ -110,7 +118,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 							'key'          => $this->field_key . '_file_title',
 							'label'        => __( 'Title', 'dss-hogan-downloads' ),
 							'name'         => 'file_title',
-							'instructions' => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Optional title for the file. If not filled in "Download the file" is used as title.', 'ACF Instruction', 'dss-hogan-downloads' ) ),
+							'instructions' => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Optional title for the file. If not filled in "Download the file" is used as title. Note that format and size is added automatically.', 'ACF Instruction', 'dss-hogan-downloads' ) ),
 							'wrapper'      => [
 								'width' => '50',
 							],
@@ -127,7 +135,6 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 								[
 									'type'         => 'clone',
 									'key'          => $this->field_key . '_additional_file',
-									'label'        => __( 'Test clone', 'nettsteder-mal' ),
 									'name'         => 'additional_file',
 									'required'     => 0,
 									'clone'        => [

@@ -8,7 +8,8 @@
   },
   "entry": {
     "dss-hogan-downloads": [
-      "./src/dss-hogan-downloads.scss"
+      "./src/styles.scss",
+      "./src/scripts.js"
     ]
   },
   "heisenberg": {
