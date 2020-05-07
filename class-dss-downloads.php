@@ -61,64 +61,33 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 		 */
 		public function get_fields() : array {
 
-			$fields = [
-				[
-					'type'          => 'button_group',
-					'key'           => $this->field_key . '_preview_image',
-					'name'          => 'preview_image',
-					'label'         => __( 'Show preview image', 'dss-hogan-downloads' ),
-					'instructions'  => __( 'Set \'On\' to show a preview image of the files. \'Off\' will show a download icon.', 'dss-hogan-downloads' ),
-					'default_value' => 'off',
-					'choices'       => [
-						'off' => __( 'Off', 'dss-hogan-downloads' ),
-						'on'  => __( 'On', 'dss-hogan-downloads' ),
-					],
-					'layout'        => 'horizontal',
-					'return_format' => 'value',
-				],
+			return [
 				[
 					'type'         => 'repeater',
 					'key'          => $this->field_key . '_downloads',
 					'label'        => __( 'Downloads', 'dss-hogan-downloads' ),
 					'name'         => 'downloads',
-					'instructions' => __( 'Create a list of downloadable files', 'dss-hogan-downloads' ),
+					'instructions' => __( 'Create one or multiple lists of downloads', 'dss-hogan-downloads' ),
 					'collapsed'    => '',
 					'min'          => 1,
 					'max'          => 0,
 					'layout'       => 'block',
-					'button_label' => __( 'Add download', 'dss-hogan-downloads' ),
+					'button_label' => __( 'Add downloads', 'dss-hogan-downloads' ),
 					'sub_fields'   => [
 						[
-							'key' => $this->field_key . '_download_item',
-							'label' => __( 'Download', 'dss-hogan-downloads' ),
-							'name' => 'download_item',
-							'type' => 'accordion',
-							'open' => 1,
+							'key'          => $this->field_key . '_download_item',
+							'label'        => __( 'Download', 'dss-hogan-downloads' ),
+							'name'         => 'download_item',
+							'type'         => 'accordion',
+							'open'         => 1,
 							'multi_expand' => 1,
 						],
 						[
 							'type'         => 'text',
 							'key'          => $this->field_key . '_title',
-							'label'        => __( 'Title', 'dss-hogan-downloads' ),
+							'label'        => __( 'Box title', 'dss-hogan-downloads' ),
 							'name'         => 'title',
-							'instructions' => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Optional. If not filled in "Download the file" is used as title.', 'ACF Instruction', 'dss-hogan-downloads' ) ),
-
-							'wrapper' => [
-								'width' => '50',
-							],
-						],
-						[
-							'type'         => 'textarea',
-							'key'          => $this->field_key . '_description',
-							'name'         => 'description',
-							'label'        => __( 'Description', 'dss-hogan-downloads' ),
-							'instructions' => __( 'Add a short description', 'dss-hogan-downloads' ),
-							'wrapper'       => [
-								'width' => '50',
-							],
-							'required'     => false,
-							'rows'         => 3,
-							'new_lines'    => '',
+							'instructions' => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Optional box title for the files. If not filled in "Download files" is used as title.', 'ACF Instruction', 'dss-hogan-downloads' ) ),
 						],
 						[
 							'type'          => 'file',
@@ -127,17 +96,54 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 							'name'          => 'file',
 							'instructions'  => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Allowed file types', 'ACF Instruction', 'dss-hogan-downloads' ) ) . ': ' . apply_filters( 'dss/hogan/module/downloads/mime_types', '.pdf' ),
 							'required'      => 1,
-							'return_format' => 'array', //'url',
+							'return_format' => 'array',
 							'library'       => 'all',
 							'min_size'      => '',
 							'max_size'      => '',
 							'mime_types'    => apply_filters( 'dss/hogan/module/downloads/mime_types', '.pdf' ),
+							'wrapper'       => [
+								'width' => '50',
+							],
+						],
+						[
+							'type'         => 'text',
+							'key'          => $this->field_key . '_file_title',
+							'label'        => __( 'Title', 'dss-hogan-downloads' ),
+							'name'         => 'file_title',
+							'instructions' => apply_filters( 'dss/hogan/module/downloads/title/instructions', esc_html_x( 'Optional title for the file. If not filled in "Download the file" is used as title.', 'ACF Instruction', 'dss-hogan-downloads' ) ),
+							'wrapper'      => [
+								'width' => '50',
+							],
+						],
+						[
+							'type'         => 'repeater',
+							'key'          => $this->field_key . '_additional_files',
+							'label'        => __( 'Additional files', 'dss-hogan-downloads' ),
+							'name'         => 'additional_files',
+							'instructions' => __( 'Add more files and create a list of downloadable files', 'dss-hogan-downloads' ),
+							'layout'       => 'block',
+							'button_label' => __( 'Add files', 'dss-hogan-downloads' ),
+							'sub_fields'   => [
+								[
+									'type'         => 'clone',
+									'key'          => $this->field_key . '_additional_file',
+									'label'        => __( 'Test clone', 'nettsteder-mal' ),
+									'name'         => 'additional_file',
+									'required'     => 0,
+									'clone'        => [
+										0 => $this->field_key . '_file',
+										1 => $this->field_key . '_file_title',
+									],
+									'display'      => 'seamless',
+									'layout'       => 'block',
+									'prefix_label' => 0,
+									'prefix_name'  => 0,
+								],
+							],
 						],
 					],
 				],
 			];
-
-			return $fields;
 		}
 
 		/**
@@ -152,11 +158,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 
 			parent::load_args_from_layout_content( $raw_content, $counter );
 
-			if ( ! empty( $raw_content['preview_image'] ) ) {
-				$this->preview_image = $raw_content['preview_image'];
-			}
-
-			$this->downloads = $raw_content['downloads'];
+			$this->downloads        = $raw_content['downloads'];
 
 		}
 

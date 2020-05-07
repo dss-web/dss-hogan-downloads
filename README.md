@@ -7,6 +7,5 @@ Downloading this repository and place it in `wp-content/plugins`
 - `dss/hogan/module/downloads/title/instructions` : Change title instructions.
 - `dss/hogan/module/downloads/file/instructions` : Change file instructions.
 - `dss/hogan/module/downloads/mime_types` : Change default instructions. Default `.pdf` (comma separated string of file types)
-- `dss/hogan/module/downloads/preview_image_size` : Set preview image size. Default 'thumbnail'
-- `dss/hogan/module/downloads/file_name_max_chars` : Set file name max character length. Default 25
-- `dss/hogan/module/downloads/preview_image_fallback_icon_path` : Icon / image path for fallback icon / image when 'Show preview image' is on and there is not generated any preview thumbnail. Default {plugin_path}/assets/images/document.png
+- `dss/hogan/module/downloads/item/title` : Change title for the download item. Default: title set by editor, format and size.
+- `dss/hogan/module/downloads/item/output` : Change output for the download item. Default: Title wrapped in a tag with url to the download and the filename as title attribute.
