@@ -1,27 +1,5 @@
 .hogan-module-dss_downloads {
 	.hogan-module-inner {
-		> ul {
-			@media ( min-width: 600px ) {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				margin: -4% 0 0 0;
-
-				li {
-					flex: 0 1 48%;
-					margin-bottom: 0;
-					margin-top: 4%;
-				}
-			}
-
-			li {
-				background-color: #f1f1f0;
-				margin-bottom: 24px;
-				padding: 12px;
-			}
-
-		}
-
 		ul {
 			list-style: none;
 			margin: 0;
@@ -41,5 +19,28 @@
 				}
 			}
 		}
+
+		> ul {
+			@media ( min-width: 600px ) {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				margin: -4% 0 0 0;
+
+				> li {
+					flex: 0 1 48%;
+					margin-bottom: 0;
+					margin-top: 4%;
+				}
+			}
+
+			> li {
+				background-color: #f1f1f0;
+				margin-bottom: 24px;
+				padding: 12px;
+			}
+
+		}
+
 	}
 }
