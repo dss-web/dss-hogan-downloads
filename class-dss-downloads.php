@@ -23,13 +23,6 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 	class DSS_Downloads extends Module {
 
 		/**
-		 * Preview image
-		 *
-		 * @var string
-		 */
-		public $preview_image = 'off';
-
-		/**
 		 * List of downloads.
 		 *
 		 * @var $downloads
@@ -51,7 +44,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\DSS_Downloads' ) && class_exists( '\\Deko
 		 * Enqueue module assets
 		 */
 		public function enqueue_assets() {
-			$_version = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? time() : '2.0.1';
+			$_version = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? time() : '2.0.2';
 
 			if ( true === apply_filters( 'hogan/module/downloads/load_styles', true ) ) {
 				wp_enqueue_style( 'dss-hogan-downloads', plugins_url( '/assets/css/dss-hogan-downloads.css', __FILE__ ), [], $_version );

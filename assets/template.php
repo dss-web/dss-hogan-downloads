@@ -6,7 +6,6 @@
  *
  * Available properties:
  * $this->downloads (array) Array containing all download items.
- * $this->preview_image (string) If a preview image should be displayed or a generic icon.
  *
  * @package Hogan
  */
