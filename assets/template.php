@@ -41,7 +41,8 @@ if ( ! \function_exists( 'Dekode\\Hogan\\render_dss_hogan_download_item' ) ) {
 		if ( ! empty( $file_name ) ) {
 			$mime_type_array = explode( '.', $file_name );
 			$mime_type       = $mime_type_array[ count( $mime_type_array ) - 1 ];
-			$title           .= sprintf( ' i %s format', esc_html( $mime_type ) );
+			// Translators: "Download file ...".
+			$title           .= sprintf( __( ' in %s format', 'dss-hogan-downloads' ), esc_html( $mime_type ) );
 		}
 
 		if ( false !== $attachment_file_path && file_exists( $attachment_file_path ) && is_readable( $attachment_file_path ) ) :
