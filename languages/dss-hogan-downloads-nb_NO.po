@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DSS Hogan Module: Downloads\n"
-"POT-Creation-Date: 2020-05-07 15:32+0200\n"
-"PO-Revision-Date: 2020-05-07 15:33+0200\n"
+"POT-Creation-Date: 2020-10-09 14:14+0200\n"
+"PO-Revision-Date: 2020-10-09 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -22,35 +22,40 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: wp-content\n"
 
-#: assets/template.php:39
+#: assets/template.php:38
 msgid "Download the file"
 msgstr "Last ned filen"
+
+#: assets/template.php:45
+#, php-format
+msgid " in %s format"
+msgstr " i %s-format"
 
 #: assets/template.php:72
 msgid "Download files"
 msgstr "Laste ned filer"
 
-#: class-dss-downloads.php:44 class-dss-downloads.php:76
+#: class-dss-downloads.php:37 class-dss-downloads.php:69
 msgid "Downloads"
 msgstr "Nedlastinger"
 
-#: class-dss-downloads.php:78
+#: class-dss-downloads.php:71
 msgid "Create one or multiple lists of downloads"
 msgstr "Opprett én eller flere lister med nedlastbare filer"
 
-#: class-dss-downloads.php:83
+#: class-dss-downloads.php:76
 msgid "Add downloads"
 msgstr "Legg til nedlastinger"
 
-#: class-dss-downloads.php:87
+#: class-dss-downloads.php:80
 msgid "Download"
 msgstr "Nedlasting"
 
-#: class-dss-downloads.php:96
+#: class-dss-downloads.php:89
 msgid "Box title"
 msgstr "Bokstittel"
 
-#: class-dss-downloads.php:98
+#: class-dss-downloads.php:91
 msgctxt "ACF Instruction"
 msgid ""
 "Optional box title for the files. If not filled in \"Download files\" is "
@@ -58,20 +63,20 @@ msgid ""
 msgstr ""
 "Valgfri boktittel. Hvis ikke fylt ut, brukes \"Last ned filer” som tittel."
 
-#: class-dss-downloads.php:103
+#: class-dss-downloads.php:96
 msgid "File"
 msgstr "Fil"
 
-#: class-dss-downloads.php:105
+#: class-dss-downloads.php:98
 msgctxt "ACF Instruction"
 msgid "Allowed file types"
 msgstr "Tillatte filtyper"
 
-#: class-dss-downloads.php:119
+#: class-dss-downloads.php:112
 msgid "Title"
 msgstr "Tittel"
 
-#: class-dss-downloads.php:121
+#: class-dss-downloads.php:114
 msgctxt "ACF Instruction"
 msgid ""
 "Optional title for the file. If not filled in \"Download the file\" is used "
@@ -80,15 +85,15 @@ msgstr ""
 "Valgfri tittel for filen. Hvis ikke fylt ut, brukes \"Last ned filen\" som "
 "tittel. Merk at format og størrelse legges etter tittel automatisk."
 
-#: class-dss-downloads.php:129
+#: class-dss-downloads.php:122
 msgid "Additional files"
 msgstr "Flere filer"
 
-#: class-dss-downloads.php:131
+#: class-dss-downloads.php:124
 msgid "Add more files and create a list of downloadable files"
 msgstr "Legge til flere filer og opprett en liste over nedlastbare filer"
 
-#: class-dss-downloads.php:133
+#: class-dss-downloads.php:126
 msgid "Add files"
 msgstr "Legg til filer"
 
